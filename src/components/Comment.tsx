@@ -9,14 +9,21 @@ export interface CommentProps {
 }
 
 export default class Comment extends React.Component<CommentProps, {}> {
-    render() {
+    rawMarkup():{__html:string} {
 	let md = new Remarkable();
+	let html = md.render(this.props.children.toString());
+	return {
+	    __html: html
+	};
+    }
+
+    render() {
 	return (
 	    <div className="comment">
               <h2 className="commentAuthor">
                 {this.props.author}
               </h2>
-              {md.render(this.props.children.toString())}
+              <span dangerouslySetInnerHTML={this.rawMarkup()} />
 	    </div>
 	);
     }
