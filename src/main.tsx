@@ -1,7 +1,17 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
+let CommentBox = React.createClass({
+    render: function() {
+	return (
+	    <div className="commentBox">
+		Hello, world! I am a CommentBox.
+	    </div>
+	);
+    }
+});
+
 ReactDOM.render(
-    <h1>Hello, world!</h1>,
-    document.getElementById('example')
+    <CommentBox />,
+    document.getElementById('content')
 );
