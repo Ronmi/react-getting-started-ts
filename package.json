@@ -1,0 +1,30 @@
+{
+  "name": "xchg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "webpack": "webpack",
+    "webpack:w": "webpack -w",
+    "typings": "typings",
+    "lite": "lite-server",
+    "start": "webpack && concurrently \"npm run webpack:w\" \"npm run lite\"",
+    "postinstall": "typings install"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
+  },
+  "devDependencies": {
+    "concurrently": "^2.2.0",
+    "lite-server": "^2.2.2",
+    "source-map-loader": "^0.1.5",
+    "ts-loader": "^0.8.2",
+    "tslint": "^3.13.0",
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.1"
+  }
+}
