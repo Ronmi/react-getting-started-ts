@@ -1,11 +1,11 @@
 import * as React from "react";
 // TODO: fix the type definitions of remarkable.js
-declare function Remarkable():any;
+declare class Remarkable{render(str:string):string};
 
 // define properties used in Comment component
 export interface CommentProps {
     author: string;
-    children: React.ReactChild;
+    children?: React.ReactNode;
 }
 
 export default class Comment extends React.Component<CommentProps, {}> {
