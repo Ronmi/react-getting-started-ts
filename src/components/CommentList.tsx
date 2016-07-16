@@ -23,4 +23,3 @@ export default class CommentList extends React.Component<CommentListProps, {}> {
 	);
     }
 }
-
