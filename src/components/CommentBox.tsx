@@ -6,6 +6,7 @@ import * as model from "../comment";
 
 export interface CommentBoxProps {
     url: string;
+    pollInterval: number;
 }
 
 export interface CommentBoxState {
@@ -18,7 +19,7 @@ export default class CommentBox extends React.Component<CommentBoxProps, Comment
 	this.state = {data:[]};
     }
 
-    componentDidMount() {
+    loadComments() {
 	$.ajax({
 	    url: this.props.url,
 	    dataType: 'json',
@@ -28,7 +29,13 @@ export default class CommentBox extends React.Component<CommentBoxProps, Comment
 	    },
 	    error: (xhr:JQueryXHR, status:string, err:string) => {
 		console.error(this.props.url, status, err);
+	    }
 	});
+    }
+
+    componentDidMount() {
+	this.loadComments();
+	setInterval(() => {this.loadComments()}, this.props.pollInterval);
     }
 
     render() {
