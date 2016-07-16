@@ -1,12 +1,17 @@
 import * as React from "react";
+import * as model from "../comment";
 
 export interface CommentFormState {
     author?: string;
     text?: string;
 }
 
-export default class CommentForm extends React.Component<{}, CommentFormState> {
-    constructor(props?: {}, context?: any) {
+export interface CommentFormProps {
+    onCommentSubmit(c:model.Comment):void
+}
+
+export default class CommentForm extends React.Component<CommentFormProps, CommentFormState> {
+    constructor(props?: CommentFormProps, context?: any) {
 	super(props, context);
 
 	this.state = {
@@ -30,7 +35,7 @@ export default class CommentForm extends React.Component<{}, CommentFormState> {
 	if (!text || !author) {
 	    return;
 	}
-	// TODO: send request to the server
+	this.props.onCommentSubmit({author: author, text: text});
 	this.setState({author: '', text: ''});
     }
 
