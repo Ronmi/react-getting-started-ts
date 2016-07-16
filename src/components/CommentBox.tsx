@@ -34,6 +34,10 @@ export default class CommentBox extends React.Component<CommentBoxProps, Comment
     }
 
     handleCommentSubmit(c:model.Comment) {
+	let comments = this.state.data;
+	c.id = Date.now();
+	this.setState({data: comments.concat([c])});
+
 	$.ajax({
 	    url: this.props.url,
 	    dataType: 'json',
@@ -43,6 +47,7 @@ export default class CommentBox extends React.Component<CommentBoxProps, Comment
 		this.setState({data: data as model.Comment[]});
 	    },
 	    error: (xhr:JQueryXHR, status:string, err:string) => {
+		this.setState({data: comments});
 		console.error(this.props.url, status, err.toString());
 	    }
 	});
