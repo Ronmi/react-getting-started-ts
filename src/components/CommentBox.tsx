@@ -15,7 +15,21 @@ export interface CommentBoxState {
 export default class CommentBox extends React.Component<CommentBoxProps, CommentBoxState> {
     constructor(props?: CommentBoxProps, context?: any) {
 	super(props, context);
-	this.state = {data:model.data};
+	this.state = {data:[]};
+    }
+
+    componentDidMount() {
+	$.ajax({
+	    url: this.props.url,
+	    dataType: 'json',
+	    cache: false,
+	    success: function(data:any) {
+		this.setState({data: data as model.Comment[]});
+	    }.bind(this),
+	    error: function(xhr:JQueryXHR, status:string, err:string) {
+		console.error(this.props.url, status, err);
+	    }.bind(this)
+	});
     }
 
     render() {
