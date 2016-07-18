@@ -11,7 +11,9 @@
     "typings": "typings",
     "lite": "lite-server",
     "start": "webpack && concurrently \"npm run tsc:w\" \"npm run webpack:w\" \"npm run lite\"",
-    "postinstall": "typings install"
+    "postinstall": "typings install",
+    "pretest": "rm -fr jstests && tsc --outDir jstests --jsx react --target es5 --noImplicitAny --module commonjs typings/index.d.ts tests/**/*.ts?",
+    "test": "mocha --recursive test.bootstrap.js jstests"
   },
   "author": "",
   "license": "ISC",

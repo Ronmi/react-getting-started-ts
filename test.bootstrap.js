@@ -1,0 +1,1 @@
+global.Remarkable = require("remarkable");
