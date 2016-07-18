@@ -22,8 +22,12 @@
     "remarkable": "^1.6.2"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "concurrently": "^2.2.0",
+    "enzyme": "^2.4.1",
     "lite-server": "^2.2.2",
+    "mocha": "^2.5.3",
+    "react-addons-test-utils": "^15.2.1",
     "source-map-loader": "^0.1.5",
     "ts-loader": "^0.8.2",
     "tslint": "^3.13.0",

@@ -3,5 +3,12 @@
     "jquery": "registry:dt/jquery#1.10.0+20160704162008",
     "react": "registry:dt/react#0.14.0+20160630100702",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040"
+  },
+  "devDependencies": {
+    "chai": "registry:npm/chai#3.5.0+20160415060238",
+    "enzyme": "registry:npm/enzyme#2.2.0+20160322031343"
+  },
+  "globalDevDependencies": {
+    "mocha": "registry:dt/mocha#2.2.5+20160619032855"
   }
 }
