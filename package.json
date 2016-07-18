@@ -27,6 +27,7 @@
     "chai": "^3.5.0",
     "concurrently": "^2.2.0",
     "enzyme": "^2.4.1",
+    "jsdom": "^9.4.1",
     "lite-server": "^2.2.2",
     "mocha": "^2.5.3",
     "react-addons-test-utils": "^15.2.1",
